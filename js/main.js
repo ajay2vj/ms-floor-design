@@ -36,6 +36,24 @@ $(document).ready(function () {
 		fixedContentPos: false,
 	});
 
+	// show more and less
+
+	$(".toggle").on("click", function (event) {
+		event.preventDefault();
+		event.stopPropagation();
+
+		var $toggle = $(this);
+		var $projectText = $toggle.closest(".projects_text");
+		var $moreText = $projectText.find(".more-text");
+		var $dots = $projectText.find(".dots");
+
+		if ($moreText.length) {
+			$moreText.stop(true, true).toggleClass("is-open");
+			$dots.stop(true, true).fadeToggle(180);
+			$toggle.text($moreText.hasClass("is-open") ? "Show Less" : "Show More");
+		}
+	});
+
 	//------- Superfist nav menu  js --------//
 
 	$(".nav-menu").superfish({
@@ -287,6 +305,97 @@ $(document).ready(function () {
 			percentPosition: true,
 		});
 	});
+
+	//------- Reveal on scroll animations --------//
+	const revealElements = document.querySelectorAll(".reveal-element");
+
+	if (revealElements.length) {
+		if ("IntersectionObserver" in window) {
+			const revealObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							const delay = parseInt(
+								entry.target.getAttribute("data-delay") || "0",
+								10,
+							);
+							entry.target.style.transitionDelay = `${delay}ms`;
+							entry.target.classList.add("is-visible");
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{
+					threshold: 0.15,
+				},
+			);
+
+			revealElements.forEach((element) => revealObserver.observe(element));
+		} else {
+			revealElements.forEach((element) => element.classList.add("is-visible"));
+		}
+	}
+
+	//------- Animated Counters --------//
+	function animateCounter(counter) {
+		if (counter.dataset.animated === "true") {
+			return;
+		}
+
+		const target = parseFloat(counter.getAttribute("data-target") || "0");
+		const decimals = parseInt(counter.getAttribute("data-decimals") || "0", 10);
+		const prefix = counter.getAttribute("data-prefix") || "";
+		const suffix = counter.getAttribute("data-suffix") || "";
+		const duration = 1400;
+		const startTime = performance.now();
+
+		function updateCounter(currentTime) {
+			const elapsed = currentTime - startTime;
+			const progress = Math.min(elapsed / duration, 1);
+			const easedProgress = 1 - Math.pow(1 - progress, 3);
+			const currentValue = target * easedProgress;
+			const formattedValue = currentValue
+				.toFixed(decimals)
+				.replace(/\.0+$/, "")
+				.replace(/(\.\d)0+$/, "$1");
+
+			counter.textContent = `${prefix}${formattedValue}${suffix}`;
+
+			if (progress < 1) {
+				requestAnimationFrame(updateCounter);
+			} else {
+				counter.dataset.animated = "true";
+			}
+		}
+
+		requestAnimationFrame(updateCounter);
+	}
+
+	const animatedCounters = document.querySelectorAll(
+		".progressBar-percentage-count",
+	);
+
+	if (animatedCounters.length) {
+		if ("IntersectionObserver" in window) {
+			const counterObserver = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							animateCounter(entry.target);
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{
+					threshold: 0.4,
+				},
+			);
+
+			animatedCounters.forEach((counter) => counterObserver.observe(counter));
+		} else {
+			animatedCounters.forEach((counter) => animateCounter(counter));
+		}
+	}
 
 	//------- Progress Bar --------//
 	$.fn.bekeyProgressbar = function (options) {
