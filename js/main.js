@@ -288,22 +288,69 @@ $(document).ready(function () {
 	});
 
 	/*----------------------------------------------------*/
-	/*  Isotope Fillter js
+	/*  Isotope Filter js
     /*----------------------------------------------------*/
-	$(window).load(function () {
-		$(".project-filter ul li").click(function () {
-			$(".project-filter ul li").removeClass("active");
-			$(this).addClass("active");
-			var filterData = $(this).attr("data-filter");
-			$projectGrid.isotope({
-				filter: filterData,
-			});
-		});
+	$(window).on("load", function () {
+		var $projectGrid = $(".projects_inner");
 
-		var $projectGrid = $(".projects_inner").isotope({
-			itemSelector: ".all",
-			percentPosition: true,
-		});
+		if ($projectGrid.length) {
+			var $projectGridInstance = $projectGrid.isotope({
+				itemSelector: ".all",
+				percentPosition: true,
+			});
+
+			function refreshProjectGridLayout() {
+				$projectGridInstance.isotope("layout");
+			}
+
+			var $gridImages = $projectGrid.find("img");
+			var imageCount = $gridImages.length;
+			var loadedImages = 0;
+
+			if (imageCount === 0) {
+				refreshProjectGridLayout();
+			} else {
+				$gridImages.each(function () {
+					if (this.complete) {
+						loadedImages += 1;
+					} else {
+						$(this).on("load error", function () {
+							loadedImages += 1;
+							if (loadedImages === imageCount) {
+								refreshProjectGridLayout();
+							}
+						});
+					}
+				});
+
+				if (loadedImages === imageCount) {
+					refreshProjectGridLayout();
+				}
+			}
+
+			window.addEventListener("pageshow", function (event) {
+				var isBackForward =
+					window.performance &&
+					window.performance.getEntriesByType &&
+					window.performance.getEntriesByType("navigation")[0] &&
+					window.performance.getEntriesByType("navigation")[0].type ===
+						"back_forward";
+
+				if (event.persisted || isBackForward) {
+					refreshProjectGridLayout();
+				}
+			});
+
+			$(".project-filter ul li").click(function () {
+				$(".project-filter ul li").removeClass("active");
+				$(this).addClass("active");
+				var filterData = $(this).attr("data-filter");
+				$projectGridInstance.isotope({
+					filter: filterData,
+				});
+				refreshProjectGridLayout();
+			});
+		}
 	});
 
 	//------- Reveal on scroll animations --------//
