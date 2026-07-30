@@ -1902,6 +1902,31 @@ body.mobile-nav-active #mobile-nav-toggle {
 	color: #fff;
 }
 
+.latest-news-area-services .row {
+	display: block;
+	column-count: 3;
+	column-gap: 30px;
+}
+.latest-news-area-services .row > [class*="col-"] {
+	display: inline-block;
+	width: 100%;
+	max-width: 100%;
+	flex: 0 0 100%;
+	margin: 0 0 30px;
+	break-inside: avoid;
+	page-break-inside: avoid;
+}
+@media (max-width: 991px) {
+	.latest-news-area-services .row {
+		column-count: 2;
+	}
+}
+@media (max-width: 576px) {
+	.latest-news-area-services .row {
+		column-count: 1;
+	}
+}
+
 .single-news {
 	border: none;
 	border-radius: 0 !important;
