@@ -3544,6 +3544,9 @@ h6 {
 }
 
 @media (max-width: 768px) {
+	.branches-container {
+		margin-bottom: 50px;
+	}
 	.branch-grid {
 		grid-template-columns: 1fr;
 	}
