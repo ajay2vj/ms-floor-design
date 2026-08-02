@@ -43,7 +43,7 @@ $(document).ready(function () {
 		event.stopPropagation();
 
 		var $toggle = $(this);
-		var $projectText = $toggle.closest(".projects_text");
+		var $projectText = $toggle.closest(".card-body");
 		var $moreText = $projectText.find(".more-text");
 		var $dots = $projectText.find(".dots");
 
