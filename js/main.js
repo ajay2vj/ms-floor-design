@@ -74,7 +74,7 @@ $(document).ready(function () {
 			id: "",
 		});
 		$("body").append($mobile_nav);
-		$("body").prepend(
+		$("#header").append(
 			'<button type="button" id="mobile-nav-toggle"><i class="lnr lnr-menu"></i></button>',
 		);
 		$("body").append('<div id="mobile-body-overly"></div>');

@@ -1370,6 +1370,14 @@ h6 {
 .header-top .lnr {
 	display: none;
 }
+.top-head-btn {
+	background: #010c5c;
+	color: #fff !important;
+	padding: 8px 14px;
+	border-radius: 999px;
+	display: inline-block;
+	line-height: 1;
+}
 @media (max-width: 588px) {
 	.header-top .lnr {
 		display: block;
@@ -1383,7 +1391,73 @@ h6 {
 }
 @media (max-width: 991px) {
 	.header-top {
-		display: none;
+		display: block;
+		height: auto;
+		line-height: 1.5;
+		padding: 12px 0;
+		background: #010c5c;
+	}
+	.header-top .container {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.header-top .row {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.header-top .col-lg-6,
+	.header-top .col-sm-6,
+	.header-top .col-4,
+	.header-top .col-8 {
+		max-width: 100%;
+		flex: 0 0 100%;
+	}
+	.header-top .header-top-left,
+	.header-top .header-top-right {
+		display: block;
+		text-align: center;
+		border-right: 0;
+	}
+	.header-top .header-top-left a,
+	.header-top .header-top-right a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		padding: 7px 12px;
+		background: rgba(255, 255, 255, 0.12);
+		border-radius: 999px;
+		color: #fff;
+	}
+	.header-top .header-top-right ul {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		border-right: 0;
+		padding: 0;
+		margin: 0 0 8px;
+	}
+	.header-top .header-top-right ul li {
+		margin-left: 0;
+	}
+	.header-top a {
+		font-size: 12px;
+		text-transform: none;
+		font-weight: 400;
+	}
+	.header-top a i {
+		color: #fff;
+	}
+	.header-top .header-top-right a:hover i {
+		color: #fff;
+	}
+	.header-top .header-top-left a i {
+		color: #fff;
+	}
+	#header.header-scrolled #mobile-nav-toggle {
+		top: 40px;
 	}
 }
 
@@ -1409,6 +1483,7 @@ h6 {
 	transition: all 0.5s;
 	z-index: 997;
 	background: #fff;
+	position: relative;
 }
 #header hr {
 	margin: 0;
@@ -1587,10 +1662,11 @@ h6 {
 
 /* Mobile Nav Toggle */
 #mobile-nav-toggle {
-	position: fixed;
+	position: absolute;
 	right: 15px;
 	z-index: 999;
-	top: 28px;
+	top: 75%;
+	transform: translateY(-50%);
 	border: 0;
 	background: none;
 	font-size: 24px;
@@ -1598,15 +1674,15 @@ h6 {
 	transition: all 0.4s;
 	outline: none;
 	cursor: pointer;
+	padding: 0;
 }
 @media (max-width: 991px) {
 	#mobile-nav-toggle {
-		top: 36px;
-	}
-}
-@media (max-width: 991px) {
-	#mobile-nav-toggle {
-		top: 28px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
 	}
 }
 
