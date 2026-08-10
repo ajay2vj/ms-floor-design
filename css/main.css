@@ -1316,6 +1316,10 @@ h6 {
 	padding: 0px;
 	height: 60px;
 	line-height: 60px;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	border-top: 1px solid #cccccc;
 }
 .header-top a {
 	color: #222;
@@ -1456,9 +1460,6 @@ h6 {
 	.header-top .header-top-left a i {
 		color: #fff;
 	}
-	#header.header-scrolled #mobile-nav-toggle {
-		top: 40px;
-	}
 }
 
 @media (max-width: 991px) {
@@ -1483,7 +1484,6 @@ h6 {
 	transition: all 0.5s;
 	z-index: 997;
 	background: #fff;
-	position: relative;
 }
 #header hr {
 	margin: 0;
@@ -1503,7 +1503,10 @@ h6 {
 	transition: all 0.5s;
 	box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3);
 }
-#header.header-scrolled .header-top,
+#header.header-scrolled .header-top {
+	display: block;
+}
+
 #header.header-scrolled hr {
 	display: none;
 }
@@ -1665,8 +1668,7 @@ h6 {
 	position: absolute;
 	right: 15px;
 	z-index: 999;
-	top: 75%;
-	transform: translateY(-50%);
+	top: 28px;
 	border: 0;
 	background: none;
 	font-size: 24px;
@@ -1674,15 +1676,10 @@ h6 {
 	transition: all 0.4s;
 	outline: none;
 	cursor: pointer;
-	padding: 0;
 }
 @media (max-width: 991px) {
 	#mobile-nav-toggle {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 44px;
-		height: 44px;
+		top: 28px;
 	}
 }
 
