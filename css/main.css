@@ -1318,17 +1318,31 @@ h6 {
 	line-height: 60px;
 	position: sticky;
 	top: 0;
-	z-index: 1000;
+	z-index: 980;
+	background: #010c5c;
 	border-top: 1px solid #cccccc;
 }
 .header-top a {
-	color: #222;
+	color: #fff;
 	font-weight: 500;
 	text-transform: uppercase;
-	font-size: 13px;
+	font-size: 14px;
 }
 .header-top a i {
-	color: #cccccc;
+	background-color: #111111;
+	color: #fff;
+	padding: 12px;
+	width: 35px;
+	border-radius: 5px;
+	text-align: center;
+}
+.header-top a:hover i {
+	background-color: #fff;
+	color: #000;
+	padding: 12px;
+	width: 35px;
+	border-radius: 5px;
+	text-align: center;
 }
 .header-top ul {
 	display: inline-block;
@@ -1338,7 +1352,7 @@ h6 {
 }
 .header-top ul li {
 	display: inline-block;
-	margin-left: 15px;
+	margin-left: 12px;
 }
 .header-top .header-top-right {
 	text-align: right;
@@ -1349,9 +1363,9 @@ h6 {
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 }
-.header-top .header-top-right a {
+/* .header-top .header-top-right a {
 	margin-right: 10px;
-}
+} */
 .header-top .header-top-right a:hover {
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
@@ -1359,7 +1373,10 @@ h6 {
 	transition: all 0.3s ease 0s;
 }
 .header-top .header-top-right a:hover i {
-	color: #010c5c;
+	color: #000;
+}
+.header-top .header-top-left a:hover i {
+	color: #000;
 }
 .header-top .header-top-left {
 	border-right: 1px solid #cccccc;
@@ -1369,7 +1386,7 @@ h6 {
 	margin-right: 30px;
 }
 .header-top .header-top-left a i {
-	color: #010c5c;
+	color: #fff;
 }
 .header-top .lnr {
 	display: none;
@@ -1447,18 +1464,22 @@ h6 {
 		margin-left: 0;
 	}
 	.header-top a {
-		font-size: 12px;
+		font-size: 13px;
 		text-transform: none;
 		font-weight: 400;
 	}
 	.header-top a i {
-		color: #fff;
+		background-color: transparent !important;
+		color: #fff !important;
+		padding: 0px !important;
+		width: auto !important;
+		text-align: center;
 	}
 	.header-top .header-top-right a:hover i {
-		color: #fff;
+		color: #fff !important;
 	}
 	.header-top .header-top-left a i {
-		color: #fff;
+		color: #fff !important;
 	}
 }
 
@@ -3344,15 +3365,17 @@ h6 {
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 }
+.footer-social a:hover i {
+	background-color: #fff;
+	color: #000;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
 .footer-social a:hover {
 	background-color: #fff;
 	color: #000;
-}
-.footer-social a i:hover {
-	color: #000;
-}
-.footer-social i {
-	color: #cccccc;
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
