@@ -3695,3 +3695,19 @@ h6 {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px #fff;
 }
+
+.banner-carousel {
+	position: relative;
+}
+.banner-carousel-active,
+.banner-carousel-active .owl-stage {
+	touch-action: pan-y;
+}
+.banner-item {
+	min-height: 740px;
+	display: flex;
+	align-items: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}

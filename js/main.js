@@ -227,6 +227,27 @@ $(document).ready(function () {
 		},
 	});
 
+	$(".banner-carousel-active").owlCarousel({
+		items: 1,
+		loop: true,
+		margin: 0,
+		autoplay: true,
+		autoplayTimeout: 2000,
+		autoplayHoverPause: true,
+		smartSpeed: 100,
+		dots: false,
+		nav: false,
+		navText: [
+			'<span class="lnr lnr-chevron-left"></span>',
+			'<span class="lnr lnr-chevron-right"></span>',
+		],
+		animateOut: "fadeOut",
+		animateIn: "fadeIn",
+		touchDrag: true,
+		mouseDrag: true,
+		navRewind: false,
+	});
+
 	//------- Light Gallery js --------//
 	if (document.getElementById("lightgallery")) {
 		$("#lightgallery").lightGallery({
