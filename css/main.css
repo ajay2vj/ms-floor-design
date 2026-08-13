@@ -1891,7 +1891,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .home-banner-area {
-	background: url(../img/home-banner.jpg) no-repeat center;
+	background: transparent;
 	background-size: cover;
 }
 
@@ -3704,7 +3704,6 @@ h6 {
 	touch-action: pan-y;
 }
 .banner-item {
-	min-height: 740px;
 	display: flex;
 	align-items: center;
 	background-size: cover;
