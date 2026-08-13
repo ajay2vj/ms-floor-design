@@ -3719,7 +3719,7 @@ h6 {
 		display: block !important;
 	}
 	.banner-item {
-		background-position: unset;
+		background-position: center;
 	}
 	.fullscreen {
 		height: 545px !important;
