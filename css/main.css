@@ -2053,7 +2053,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 .single-news .card-body .card-title {
 	font-size: 20px;
-	font-weight: 200;
+	font-weight: 500;
 	margin-bottom: 16px;
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
@@ -2303,6 +2303,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 	cursor: pointer;
 }
 .projects_text h4 a {
+	font-weight: 500;
 	color: #222;
 }
 .projects_text h4 a:hover {
