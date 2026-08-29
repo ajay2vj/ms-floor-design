@@ -256,7 +256,6 @@ input:focus {
 .main-title h1 {
 	margin-bottom: 20px;
 	font-weight: 100;
-	line-height: 29px !important;
 }
 @media (max-width: 480px) {
 	.main-title h1 {
