@@ -255,7 +255,7 @@ input:focus {
 }
 .main-title h1 {
 	margin-bottom: 20px;
-	font-weight: 100;
+	font-weight: 500;
 }
 @media (max-width: 480px) {
 	.main-title h1 {
@@ -3475,6 +3475,9 @@ h6 {
 	.footer-bottom {
 		padding-top: 0;
 	}
+}
+.footer-area h6 {
+	font-weight: 500;
 }
 
 .footer-text a,
